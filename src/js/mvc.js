@@ -12,8 +12,9 @@ function viewRender() {
 }
 
 //controller
-const newTodoButton = document.getElementById("newTodo");
+const newTodoInput = document.getElementById("newTodoInput");
+const newTodoButton = document.getElementById("newTodoButton");
 
 newTodoButton.addEventListener("click", () => {
-  modelAddTodo("vann plantene");
+  modelAddTodo(newTodoInput.value);
 });

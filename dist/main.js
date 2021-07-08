@@ -15,7 +15,7 @@
   \***********************/
 /***/ (() => {
 
-eval("//model\ntodoList = [];\n\nfunction modelAddTodo(name) {\n  todoList.push(name);\n  viewRender();\n}\n\n//view\nfunction viewRender() {\n  console.table(todoList);\n}\n\n//controller\nconst newTodoButton = document.getElementById(\"newTodo\");\n\nnewTodoButton.addEventListener(\"click\", () => {\n  modelAddTodo(\"vann plantene\");\n});\n\n\n//# sourceURL=webpack://todo-list/./src/js/mvc.js?");
+eval("//model\ntodoList = [];\n\nfunction modelAddTodo(name) {\n  todoList.push(name);\n  viewRender();\n}\n\n//view\nfunction viewRender() {\n  console.table(todoList);\n}\n\n//controller\nconst newTodoInput = document.getElementById(\"newTodoInput\");\nconst newTodoButton = document.getElementById(\"newTodoButton\");\n\nnewTodoButton.addEventListener(\"click\", () => {\n  modelAddTodo(newTodoInput.value);\n});\n\n\n//# sourceURL=webpack://todo-list/./src/js/mvc.js?");
 
 /***/ })
 
