@@ -3,11 +3,18 @@ todoList = [];
 
 function modelAddTodo(name) {
   todoList.push(name);
-  viewRender();
+  viewRender(name);
 }
 
 //view
-function viewRender() {
+function viewRender(name) {
+  newTodoInput.value = "";
+
+  const newTodo = document.createElement("div");
+  newTodo.innerHTML = name;
+
+  document.body.appendChild(newTodo);
+
   console.table(todoList);
 }
 
