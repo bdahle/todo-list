@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/controller.js":
-/*!******************************!*\
-  !*** ./src/js/controller.js ***!
-  \******************************/
+/***/ "./src/js/mvc.js":
+/*!***********************!*\
+  !*** ./src/js/mvc.js ***!
+  \***********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://todo-list/./src/js/controller.js?");
+eval("//model\ntodoList = [];\n\nfunction modelAddTodo(name) {\n  todoList.push(name);\n  viewRender();\n}\n\n//view\nfunction viewRender() {\n  console.table(todoList);\n}\n\n//controller\nconst newTodoButton = document.getElementById(\"newTodo\");\n\nnewTodoButton.addEventListener(\"click\", () => {\n  modelAddTodo(\"vann plantene\");\n});\n\n\n//# sourceURL=webpack://todo-list/./src/js/mvc.js?");
 
 /***/ })
 
@@ -26,7 +26,7 @@ eval("\n\n//# sourceURL=webpack://todo-list/./src/js/controller.js?");
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/js/controller.js"]();
+/******/ 	__webpack_modules__["./src/js/mvc.js"]();
 /******/ 	
 /******/ })()
 ;
