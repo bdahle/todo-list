@@ -2,7 +2,6 @@
 todoList = [];
 
 function Todo(name, isDone) {
-  // this.index = todoList.length;
   this.name = name;
   this.isDone = isDone;
 }
@@ -10,7 +9,6 @@ function Todo(name, isDone) {
 function modelAddTodo(name) {
   const newTodo = new Todo(name, false);
   todoList.push(newTodo);
-  // viewAddTodo(newTodo);
   viewRenderList();
 }
 
@@ -33,7 +31,6 @@ function clearInputField() {
 function createTodoElement(newTodo) {
   const newTodoElement = document.createElement("div");
   newTodoElement.innerHTML = newTodo.name;
-  // newTodoElement.setAttribute("data-index", newTodo.index);
   return newTodoElement;
 }
 
@@ -44,7 +41,6 @@ function viewClearList() {
 function viewRenderList() {
   viewClearList();
   todoList.forEach((todo, index) => {
-    console.log("INDEX: " + index);
     viewAddTodo(todo, index);
   });
 }
@@ -53,7 +49,6 @@ function viewAddTodo(newTodo, index) {
   clearInputField();
 
   const newTodoElement = createTodoElement(newTodo);
-  console.log(index);
 
   newTodoElement.addEventListener("click", () => {
     modelRemoveTodo(index);
