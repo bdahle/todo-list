@@ -1,25 +1,5 @@
-// model /////////////
-todoList = [];
+import { modelRemoveTodo } from "./model";
 
-function Todo(name, isDone) {
-  this.name = name;
-  this.isDone = isDone;
-}
-
-function modelAddTodo(name) {
-  todoList.push(new Todo(name, false));
-  viewRenderList();
-}
-
-function modelRemoveTodo(index) {
-  todoList.splice(index, 1);
-  viewRenderList();
-}
-/////////////////////
-//
-//
-//
-// view /////////////
 const todoListElement = document.getElementById("todoList");
 
 function clearInputField() {
@@ -66,22 +46,5 @@ function viewAddTodo(newTodo, index) {
 
   todoListElement.appendChild(newTodoElement);
 }
-/////////////////////
-//
-//
-//
-// controller /////////////
-const newTodoInput = document.getElementById("newTodoInput");
-const newTodoButton = document.getElementById("newTodoButton");
 
-newTodoButton.addEventListener("click", controllerAddTodo);
-
-function controllerAddTodo() {
-  modelAddTodo(newTodoInput.value);
-}
-
-modelAddTodo("Vann plantene");
-modelAddTodo("Ta ut søppelet");
-modelAddTodo("Luft hunden");
-
-/////////////////////
+export default viewRenderList;
