@@ -7,14 +7,12 @@ function Todo(name, isDone) {
 }
 
 function modelAddTodo(name) {
-  const newTodo = new Todo(name, false);
-  todoList.push(newTodo);
+  todoList.push(new Todo(name, false));
   viewRenderList();
 }
 
 function modelRemoveTodo(index) {
   todoList.splice(index, 1);
-  console.table(todoList);
   viewRenderList();
 }
 /////////////////////
@@ -28,9 +26,18 @@ function clearInputField() {
   newTodoInput.value = "";
 }
 
-function createTodoElement(newTodo) {
+function createTodoElement(newTodo, index) {
   const newTodoElement = document.createElement("div");
-  newTodoElement.innerHTML = newTodo.name;
+  const todoName = document.createElement("p");
+  todoName.innerHTML = newTodo.name + " " + newTodo.isDone;
+  const removeButton = document.createElement("button");
+  removeButton.innerHTML = "DEL";
+  removeButton.addEventListener("click", () => {
+    modelRemoveTodo(index);
+  });
+  newTodoElement.appendChild(todoName);
+  newTodoElement.appendChild(removeButton);
+
   return newTodoElement;
 }
 
@@ -48,11 +55,7 @@ function viewRenderList() {
 function viewAddTodo(newTodo, index) {
   clearInputField();
 
-  const newTodoElement = createTodoElement(newTodo);
-
-  newTodoElement.addEventListener("click", () => {
-    modelRemoveTodo(index);
-  });
+  const newTodoElement = createTodoElement(newTodo, index);
 
   todoListElement.appendChild(newTodoElement);
 }
