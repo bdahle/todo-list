@@ -1,4 +1,4 @@
-import viewRenderList from "./view";
+import renderList from "./view";
 
 todoList = [];
 
@@ -7,14 +7,14 @@ function Todo(name, isDone) {
   this.isDone = isDone;
 }
 
-function modelAddTodo(name) {
+function addTodo(name) {
   todoList.push(new Todo(name, false));
-  viewRenderList();
+  renderList();
 }
 
-function modelRemoveTodo(index) {
+function removeTodo(index) {
   todoList.splice(index, 1);
-  viewRenderList();
+  renderList();
 }
 
-export { modelAddTodo, modelRemoveTodo };
+export { addTodo, removeTodo };

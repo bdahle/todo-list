@@ -1,14 +1,14 @@
-import { modelAddTodo } from "./model";
+import { addTodo } from "./model";
 
 const newTodoInput = document.getElementById("newTodoInput");
 const newTodoButton = document.getElementById("newTodoButton");
 
-newTodoButton.addEventListener("click", controllerAddTodo);
+newTodoButton.addEventListener("click", formAddTodo);
 
-function controllerAddTodo() {
-  modelAddTodo(newTodoInput.value);
+function formAddTodo() {
+  addTodo(newTodoInput.value);
 }
 
-modelAddTodo("Vann plantene");
-modelAddTodo("Ta ut søppelet");
-modelAddTodo("Luft hunden");
+addTodo("Vann plantene");
+addTodo("Ta ut søppelet");
+addTodo("Luft hunden");

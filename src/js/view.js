@@ -1,4 +1,4 @@
-import { modelRemoveTodo } from "./model";
+import { removeTodo } from "./model";
 
 const todoListElement = document.getElementById("todoList");
 
@@ -12,14 +12,14 @@ function createTodoElement(newTodo, index) {
   toggleButton.innerHTML = "Toggle";
   toggleButton.addEventListener("click", () => {
     newTodo.isDone = !newTodo.isDone;
-    viewRenderList();
+    renderList();
   });
   const todoName = document.createElement("p");
   todoName.innerHTML = newTodo.name + " " + newTodo.isDone;
   const removeButton = document.createElement("button");
   removeButton.innerHTML = "DEL";
   removeButton.addEventListener("click", () => {
-    modelRemoveTodo(index);
+    removeTodo(index);
   });
   newTodoElement.appendChild(toggleButton);
   newTodoElement.appendChild(todoName);
@@ -28,18 +28,18 @@ function createTodoElement(newTodo, index) {
   return newTodoElement;
 }
 
-function viewClearList() {
+function clearList() {
   todoListElement.innerHTML = "";
 }
 
-function viewRenderList() {
-  viewClearList();
+function renderList() {
+  clearList();
   todoList.forEach((todo, index) => {
-    viewAddTodo(todo, index);
+    addTodo(todo, index);
   });
 }
 
-function viewAddTodo(newTodo, index) {
+function addTodo(newTodo, index) {
   clearInputField();
 
   const newTodoElement = createTodoElement(newTodo, index);
@@ -47,4 +47,4 @@ function viewAddTodo(newTodo, index) {
   todoListElement.appendChild(newTodoElement);
 }
 
-export default viewRenderList;
+export default renderList;
