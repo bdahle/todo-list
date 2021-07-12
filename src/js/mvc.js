@@ -28,6 +28,12 @@ function clearInputField() {
 
 function createTodoElement(newTodo, index) {
   const newTodoElement = document.createElement("div");
+  const toggleButton = document.createElement("button");
+  toggleButton.innerHTML = "Toggle";
+  toggleButton.addEventListener("click", () => {
+    newTodo.isDone = !newTodo.isDone;
+    viewRenderList();
+  });
   const todoName = document.createElement("p");
   todoName.innerHTML = newTodo.name + " " + newTodo.isDone;
   const removeButton = document.createElement("button");
@@ -35,6 +41,7 @@ function createTodoElement(newTodo, index) {
   removeButton.addEventListener("click", () => {
     modelRemoveTodo(index);
   });
+  newTodoElement.appendChild(toggleButton);
   newTodoElement.appendChild(todoName);
   newTodoElement.appendChild(removeButton);
 
