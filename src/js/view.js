@@ -1,4 +1,4 @@
-import { addTodo, removeTodo, setDoneStatus } from "./model";
+import { todoList, addTodo, removeTodo, setDoneStatus } from "./model";
 
 const todoListElement = document.getElementById("todoList");
 

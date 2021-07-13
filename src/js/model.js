@@ -1,6 +1,6 @@
 import { renderList } from "./view";
 
-todoList = [];
+let todoList = [];
 
 function Todo(name, isDone) {
   this.name = name;
@@ -21,4 +21,4 @@ function setDoneStatus(index, status) {
   todoList[index].isDone = status;
 }
 
-export { addTodo, removeTodo, setDoneStatus };
+export { todoList, addTodo, removeTodo, setDoneStatus };
