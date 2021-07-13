@@ -1,6 +1,15 @@
-import { removeTodo, setDoneStatus } from "./model";
+import { addTodo, removeTodo, setDoneStatus } from "./model";
 
 const todoListElement = document.getElementById("todoList");
+
+function setUpPage() {
+  const newTodoInput = document.getElementById("newTodoInput");
+  const newTodoButton = document.getElementById("newTodoButton");
+
+  newTodoButton.addEventListener("click", function () {
+    addTodo(newTodoInput.value);
+  });
+}
 
 function clearInputField() {
   newTodoInput.value = "";
@@ -14,6 +23,7 @@ function createTodoElement(newTodo, index) {
   checkbox.checked = newTodo.isDone;
   checkbox.addEventListener("change", function () {
     setDoneStatus(index, this.checked);
+    renderList();
   });
   const todoName = document.createElement("label");
   todoName.setAttribute("for", "label" + index);
@@ -38,11 +48,11 @@ function clearList() {
 function renderList() {
   clearList();
   todoList.forEach((todo, index) => {
-    addTodo(todo, index);
+    addTodoWithIndex(todo, index);
   });
 }
 
-function addTodo(newTodo, index) {
+function addTodoWithIndex(newTodo, index) {
   clearInputField();
 
   const newTodoElement = createTodoElement(newTodo, index);
@@ -50,4 +60,4 @@ function addTodo(newTodo, index) {
   todoListElement.appendChild(newTodoElement);
 }
 
-export default renderList;
+export { renderList, setUpPage };

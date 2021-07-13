@@ -1,4 +1,4 @@
-import renderList from "./view";
+import { renderList } from "./view";
 
 todoList = [];
 

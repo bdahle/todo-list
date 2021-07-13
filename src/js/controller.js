@@ -1,15 +1,8 @@
 import "../css/styles.css";
 import { addTodo } from "./model";
+import { setUpPage } from "./view";
 
-const newTodoInput = document.getElementById("newTodoInput");
-const newTodoButton = document.getElementById("newTodoButton");
-
-newTodoButton.addEventListener("click", formAddTodo);
-
-function formAddTodo() {
-  addTodo(newTodoInput.value);
-}
-
+setUpPage();
 addTodo("Vann plantene");
 addTodo("Ta ut søppelet");
 addTodo("Luft hunden");
