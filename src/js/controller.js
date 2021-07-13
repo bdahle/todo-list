@@ -1,3 +1,4 @@
+import "../css/styles.css";
 import { addTodo } from "./model";
 
 const newTodoInput = document.getElementById("newTodoInput");

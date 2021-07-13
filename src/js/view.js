@@ -21,6 +21,7 @@ function createTodoElement(newTodo, index) {
   });
   const todoName = document.createElement("label");
   todoName.setAttribute("for", "label" + index);
+  todoName.classList.add("unselectable");
   todoName.innerHTML = newTodo.name + " " + newTodo.isDone;
   const removeButton = document.createElement("button");
   removeButton.innerHTML = "DEL";
