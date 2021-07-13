@@ -8,12 +8,6 @@ function clearInputField() {
 
 function createTodoElement(newTodo, index) {
   const newTodoElement = document.createElement("div");
-  //   const toggleButton = document.createElement("button");
-  //   toggleButton.innerHTML = "Toggle";
-  //   toggleButton.addEventListener("click", () => {
-  //     newTodo.isDone = !newTodo.isDone;
-  //     renderList();
-  //   });
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "label" + index;
@@ -33,7 +27,6 @@ function createTodoElement(newTodo, index) {
   removeButton.addEventListener("click", () => {
     removeTodo(index);
   });
-  //   newTodoElement.appendChild(toggleButton);
   newTodoElement.appendChild(checkbox);
   newTodoElement.appendChild(todoName);
   newTodoElement.appendChild(removeButton);
