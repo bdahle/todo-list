@@ -5,9 +5,11 @@ const todoListElement = document.getElementById("todoList");
 function setUpPage() {
   const newTodoInput = document.getElementById("newTodoInput");
   const newTodoButton = document.getElementById("newTodoButton");
+  const newTodoDueDate = document.getElementById("newTodoDueDate");
 
   newTodoButton.addEventListener("click", function () {
-    if (newTodoInput.value !== "") addTodo(newTodoInput.value);
+    if (newTodoInput.value !== "")
+      addTodo(newTodoInput.value, newTodoDueDate.value);
   });
 }
 
@@ -31,7 +33,7 @@ function createLabel(newTodo, index) {
   const label = document.createElement("label");
   label.setAttribute("for", "label" + index);
   label.classList.add("unselectable");
-  label.innerHTML = newTodo.name;
+  label.innerHTML = newTodo.name + " innen " + newTodo.dueDate;
   return label;
 }
 

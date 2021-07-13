@@ -2,16 +2,17 @@ import { renderList } from "./view";
 
 let todoList = [];
 
-function Todo(name, isDone, dueDate, isExpanded) {
+function Todo(name, isDone, isExpanded, dueDate) {
   this.name = name;
   this.isDone = isDone;
-  this.dueDate = dueDate;
   this.isExpanded = isExpanded;
+  this.dueDate = dueDate;
 }
 
-function addTodo(name) {
-  todoList.push(new Todo(name, false, false));
+function addTodo(name, dueDate) {
+  todoList.push(new Todo(name, false, false, dueDate));
   renderList();
+  console.table(todoList);
 }
 
 function removeTodo(index) {
