@@ -2,13 +2,14 @@ import { renderList } from "./view";
 
 let todoList = [];
 
-function Todo(name, isDone) {
+function Todo(name, isDone, isExpanded) {
   this.name = name;
   this.isDone = isDone;
+  this.isExpanded = isExpanded;
 }
 
 function addTodo(name) {
-  todoList.push(new Todo(name, false));
+  todoList.push(new Todo(name, false, false));
   renderList();
 }
 
