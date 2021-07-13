@@ -8,12 +8,18 @@
 }
 
 .todo {
-  background-color: #808080;
+  background-color: #aaaaaa;
   padding: 6px;
+  padding-left: 20px;
   margin: 4px;
   border-radius: 9999px;
 }
 
+.todo:hover {
+  background-color: #888888;
+}
+
 .done {
   opacity: 60%;
+  text-decoration: line-through;
 }
