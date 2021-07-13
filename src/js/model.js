@@ -17,4 +17,12 @@ function removeTodo(index) {
   renderList();
 }
 
-export { addTodo, removeTodo };
+function setChecked(index) {
+  todoList[index].isDone = true;
+}
+
+function setUnChecked(index) {
+  todoList[index].isDone = false;
+}
+
+export { addTodo, removeTodo, setChecked, setUnChecked };

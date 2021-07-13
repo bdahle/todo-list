@@ -1,4 +1,4 @@
-import { removeTodo } from "./model";
+import { removeTodo, setChecked, setUnChecked } from "./model";
 
 const todoListElement = document.getElementById("todoList");
 
@@ -8,20 +8,33 @@ function clearInputField() {
 
 function createTodoElement(newTodo, index) {
   const newTodoElement = document.createElement("div");
-  const toggleButton = document.createElement("button");
-  toggleButton.innerHTML = "Toggle";
-  toggleButton.addEventListener("click", () => {
-    newTodo.isDone = !newTodo.isDone;
-    renderList();
+  //   const toggleButton = document.createElement("button");
+  //   toggleButton.innerHTML = "Toggle";
+  //   toggleButton.addEventListener("click", () => {
+  //     newTodo.isDone = !newTodo.isDone;
+  //     renderList();
+  //   });
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = "label" + index;
+  checkbox.checked = newTodo.isDone;
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      setChecked(index);
+    } else {
+      setUnChecked(index);
+    }
   });
-  const todoName = document.createElement("p");
+  const todoName = document.createElement("label");
+  todoName.setAttribute("for", "label" + index);
   todoName.innerHTML = newTodo.name + " " + newTodo.isDone;
   const removeButton = document.createElement("button");
   removeButton.innerHTML = "DEL";
   removeButton.addEventListener("click", () => {
     removeTodo(index);
   });
-  newTodoElement.appendChild(toggleButton);
+  //   newTodoElement.appendChild(toggleButton);
+  newTodoElement.appendChild(checkbox);
   newTodoElement.appendChild(todoName);
   newTodoElement.appendChild(removeButton);
 
