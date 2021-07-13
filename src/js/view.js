@@ -3,6 +3,8 @@ import { addTodo, removeTodo, setDoneStatus } from "./model";
 const todoListElement = document.getElementById("todoList");
 
 function setUpPage() {
+  const newTodoForm = document.getElementById("newTodoForm");
+
   const newTodoInput = document.getElementById("newTodoInput");
   const newTodoButton = document.getElementById("newTodoButton");
 
