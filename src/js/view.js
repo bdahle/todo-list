@@ -1,4 +1,4 @@
-import { removeTodo, setDoneStatus } from "./model";
+import { removeTodo, setChecked, setUnChecked, setDoneStatus } from "./model";
 
 const todoListElement = document.getElementById("todoList");
 
