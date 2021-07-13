@@ -1,4 +1,4 @@
-import { removeTodo, setChecked, setUnChecked } from "./model";
+import { removeTodo, setChecked, setUnChecked, setDoneStatus } from "./model";
 
 const todoListElement = document.getElementById("todoList");
 
@@ -13,11 +13,7 @@ function createTodoElement(newTodo, index) {
   checkbox.id = "label" + index;
   checkbox.checked = newTodo.isDone;
   checkbox.addEventListener("change", function () {
-    if (this.checked) {
-      setChecked(index);
-    } else {
-      setUnChecked(index);
-    }
+    setDoneStatus(index, this.checked);
   });
   const todoName = document.createElement("label");
   todoName.setAttribute("for", "label" + index);

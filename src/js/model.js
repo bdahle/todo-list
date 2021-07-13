@@ -17,12 +17,8 @@ function removeTodo(index) {
   renderList();
 }
 
-function setChecked(index) {
-  todoList[index].isDone = true;
+function setDoneStatus(index, status) {
+  todoList[index].isDone = status;
 }
 
-function setUnChecked(index) {
-  todoList[index].isDone = false;
-}
-
-export { addTodo, removeTodo, setChecked, setUnChecked };
+export { addTodo, removeTodo, setDoneStatus };
