@@ -7,7 +7,7 @@ function setUpPage() {
   const newTodoButton = document.getElementById("newTodoButton");
 
   newTodoButton.addEventListener("click", function () {
-    addTodo(newTodoInput.value);
+    if (newTodoInput.value !== "") addTodo(newTodoInput.value);
   });
 }
 

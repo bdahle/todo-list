@@ -10,8 +10,9 @@
   <body>
     <h1>Huskeliste</h1>
     <div id="todoList"></div>
-    <form action="" class="todo" onsubmit="return false">
-      <input id="newTodoInput" type="text" />
+    <form action="javascript:void(0);" class="todo" onsubmit="return false">
+      <input id="newTodoInput" type="text" required />
+      <input id="newTodoDueDate" type="date" />
       <input type="submit" id="newTodoButton" value="Legg til" input />
     </form>
   </body>
