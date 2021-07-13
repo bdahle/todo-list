@@ -46,6 +46,7 @@ function createDeleButton(index) {
 
 function createTodoElement(newTodo, index) {
   const newTodoElement = document.createElement("div");
+  newTodoElement.classList.add("todo");
   const checkbox = createCheckBox(newTodo, index);
   const label = createLabel(newTodo, index);
   const removeButton = createDeleButton(index);

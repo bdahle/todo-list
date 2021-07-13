@@ -6,3 +6,10 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.todo {
+  background-color: #808080;
+  padding: 6px;
+  margin: 4px;
+  border-radius: 9999px;
+}
