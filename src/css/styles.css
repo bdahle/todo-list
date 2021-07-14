@@ -1,3 +1,19 @@
+html,
+body {
+  height: 100%;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #7796cb;
+  height: 100%;
+}
+
+#leftBar {
+  background-color: #576490;
+}
+
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -8,10 +24,10 @@
 }
 
 .todo {
-  background-color: #aaaaaa;
+  background-color: #a3bcf9;
   padding: 6px;
   padding-left: 20px;
-  margin: 4px;
+  margin: 6px;
   border-radius: 9999px;
 }
 
@@ -22,4 +38,8 @@
 .done {
   opacity: 60%;
   text-decoration: line-through;
+}
+
+h1 {
+  font-size: xx-large;
 }

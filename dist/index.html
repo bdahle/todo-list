@@ -8,12 +8,24 @@
     <link rel="shortcut icon" href="#" />
   </head>
   <body>
-    <h1>Huskeliste</h1>
-    <div id="todoList"></div>
-    <form action="javascript:void(0);" class="todo" onsubmit="return false">
-      <input id="newTodoInput" type="text" placeholder="Ny oppgave" required />
-      <input id="newTodoDueDate" type="date" />
-      <input type="submit" id="newTodoButton" value="Legg til" input />
-    </form>
+    <div id="wrapper">
+      <div id="leftBar">
+        <h1>Test</h1>
+      </div>
+      <div id="rightArea">
+        <h1>Huskeliste</h1>
+        <div id="todoList"></div>
+        <form action="javascript:void(0);" class="todo" onsubmit="return false">
+          <input
+            id="newTodoInput"
+            type="text"
+            placeholder="Ny oppgave"
+            required
+          />
+          <input id="newTodoDueDate" type="date" />
+          <input type="submit" id="newTodoButton" value="Legg til" input />
+        </form>
+      </div>
+    </div>
   </body>
 </html>
