@@ -2,15 +2,16 @@ import { renderList } from "./view";
 
 let todoList = [];
 
-function Todo(name, isDone, isExpanded, dueDate) {
+function Todo(project, name, isDone, isExpanded, dueDate) {
+  this.project = project;
   this.name = name;
   this.isDone = isDone;
   this.isExpanded = isExpanded;
   this.dueDate = dueDate;
 }
 
-function addTodo(name, dueDate) {
-  todoList.push(new Todo(name, false, false, dueDate));
+function addTodo(project, name, dueDate) {
+  todoList.push(new Todo(project, name, false, false, dueDate));
   renderList();
   console.table(todoList);
 }

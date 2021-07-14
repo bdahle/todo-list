@@ -1,3 +1,4 @@
+import { currentProject } from "./controller";
 import { todoList, addTodo, removeTodo, setDoneStatus } from "./model";
 
 const todoListElement = document.getElementById("todoList");
@@ -66,7 +67,10 @@ function clearList() {
 
 function renderList() {
   clearList();
-  todoList.forEach((todo, index) => {
+  const currentProjectTodos = todoList.filter(
+    (todo) => todo.project === currentProject
+  );
+  currentProjectTodos.forEach((todo, index) => {
     addTodoElement(todo, index);
   });
 }
