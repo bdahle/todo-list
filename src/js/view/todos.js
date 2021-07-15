@@ -48,22 +48,25 @@ function createDeleButton(index) {
   return deleteButton;
 }
 
-function createTodoElement(newTodo, index) {
-  const newTodoElement = document.createElement("div");
-  newTodoElement.classList.add("todo");
-  if (newTodo.isDone) newTodoElement.classList.add("done");
+function createAndAppendElements(element, newTodo, index) {
   const checkbox = createCheckBox(newTodo, index);
   const label = createLabel(newTodo, index);
   const removeButton = createDeleButton(index);
 
-  newTodoElement.appendChild(checkbox);
-  newTodoElement.appendChild(label);
-  newTodoElement.appendChild(removeButton);
+  element.appendChild(checkbox);
+  element.appendChild(label);
+  element.appendChild(removeButton);
+}
 
-  if (newTodo.project !== currentProject) {
-    console.log(newTodo);
+function createTodoElement(newTodo, index) {
+  const newTodoElement = document.createElement("div");
+
+  newTodoElement.classList.add("todo");
+  if (newTodo.isDone) newTodoElement.classList.add("done");
+  if (newTodo.project !== currentProject)
     newTodoElement.classList.add("hidden");
-  }
+
+  createAndAppendElements(newTodoElement, newTodo, index);
 
   return newTodoElement;
 }
