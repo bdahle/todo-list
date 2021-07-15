@@ -44,11 +44,11 @@ body {
   &:hover {
     background-color: lighten($color: $todo-color, $amount: 5%);
   }
-}
 
-.done {
-  opacity: 60%;
-  text-decoration: line-through;
+  &.done {
+    opacity: 60%;
+    text-decoration: line-through;
+  }
 }
 
 h1 {
