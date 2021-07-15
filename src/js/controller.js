@@ -1,5 +1,5 @@
 import "../css/reset.css";
-import "../css/styles.css";
+import "../css/style.scss";
 import { setUpPage } from "./view";
 import { addProject, addTodo } from "./model";
 
