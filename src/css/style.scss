@@ -1,3 +1,5 @@
+$todo-color: #a3bcf9;
+
 html,
 body {
   height: 100%;
@@ -24,15 +26,24 @@ body {
 }
 
 .todo {
-  background-color: #a3bcf9;
+  background-color: $todo-color;
   padding: 6px;
   padding-left: 20px;
+  padding-right: 20px;
   margin: 6px;
   border-radius: 9999px;
-}
 
-.todo:hover {
-  background-color: lighten($color: #a3bcf9, $amount: 5%);
+  label {
+    padding-left: 8px;
+  }
+
+  button {
+    float: right;
+  }
+
+  &:hover {
+    background-color: lighten($color: $todo-color, $amount: 5%);
+  }
 }
 
 .done {
