@@ -10,7 +10,7 @@ function setUpPage() {
 
   newTodoButton.addEventListener("click", function () {
     if (newTodoInput.value !== "")
-      addTodo(newTodoInput.value, newTodoDueDate.value);
+      addTodo(currentProject, newTodoInput.value, newTodoDueDate.value);
   });
 }
 
@@ -43,6 +43,7 @@ function createDeleButton(index) {
   deleteButton.innerHTML = "Slett";
   deleteButton.addEventListener("click", () => {
     removeTodo(index);
+    renderList();
   });
   return deleteButton;
 }
@@ -54,6 +55,7 @@ function createTodoElement(newTodo, index) {
   const checkbox = createCheckBox(newTodo, index);
   const label = createLabel(newTodo, index);
   const removeButton = createDeleButton(index);
+
   newTodoElement.appendChild(checkbox);
   newTodoElement.appendChild(label);
   newTodoElement.appendChild(removeButton);

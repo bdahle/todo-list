@@ -1,6 +1,7 @@
 import { renderList } from "./view";
 
-let todoList = [];
+const todoList = [];
+const projectList = [];
 
 function Todo(project, name, isDone, isExpanded, dueDate) {
   this.project = project;
@@ -18,11 +19,14 @@ function addTodo(project, name, dueDate) {
 
 function removeTodo(index) {
   todoList.splice(index, 1);
-  renderList();
 }
 
 function setDoneStatus(index, status) {
   todoList[index].isDone = status;
 }
 
-export { todoList, addTodo, removeTodo, setDoneStatus };
+function addProject(name) {
+  projectList.push(name);
+}
+
+export { todoList, addTodo, removeTodo, setDoneStatus, addProject };

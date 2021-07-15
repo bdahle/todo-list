@@ -1,9 +1,10 @@
 import "../css/reset.css";
 import "../css/styles.css";
 import { setUpPage } from "./view";
-import { addTodo } from "./model";
+import { addProject, addTodo } from "./model";
 
 let currentProject = "Personlig";
+addProject(currentProject);
 
 setUpPage();
 addTodo("Personlig", "Vann plantene", "2021-07-13");
