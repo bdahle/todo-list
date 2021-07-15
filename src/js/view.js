@@ -25,7 +25,6 @@ function createCheckBox(newTodo, index) {
   checkbox.checked = newTodo.isDone;
   checkbox.addEventListener("change", function () {
     setDoneStatus(index, this.checked);
-    renderList();
   });
   return checkbox;
 }
