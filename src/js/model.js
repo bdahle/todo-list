@@ -1,4 +1,5 @@
-import { renderTodoList, renderProjectList } from "./view/todos";
+import { renderTodoList } from "./view/todos";
+import { renderProjectList } from "./view/projects";
 
 const todoList = [];
 const projectList = [];
@@ -27,7 +28,14 @@ function setDoneStatus(index, status) {
 
 function addProject(name) {
   projectList.push(name);
-  // renderProjectList();
+  renderProjectList();
 }
 
-export { todoList, addTodo, removeTodo, setDoneStatus, addProject };
+export {
+  todoList,
+  projectList,
+  addTodo,
+  removeTodo,
+  setDoneStatus,
+  addProject,
+};

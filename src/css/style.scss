@@ -25,6 +25,20 @@ body {
   user-select: none;
 }
 
+.project {
+  background-color: #d1d2f9;
+  height: 40px;
+  margin: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  text-align: center;
+  vertical-align: middle;
+  h3 {
+    padding: 10px;
+  }
+}
+
 .todo {
   background-color: $todo-color;
   padding: 6px;
