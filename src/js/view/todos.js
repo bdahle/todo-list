@@ -25,6 +25,7 @@ function createCheckBox(newTodo, index) {
   checkbox.checked = newTodo.isDone;
   checkbox.addEventListener("change", function () {
     setDoneStatus(index, this.checked);
+    renderTodoList();
   });
   return checkbox;
 }
@@ -59,6 +60,11 @@ function createTodoElement(newTodo, index) {
   newTodoElement.appendChild(label);
   newTodoElement.appendChild(removeButton);
 
+  if (newTodo.project !== currentProject) {
+    console.log(newTodo);
+    newTodoElement.classList.add("hidden");
+  }
+
   return newTodoElement;
 }
 
@@ -68,10 +74,7 @@ function clearList() {
 
 function renderTodoList() {
   clearList();
-  const currentProjectTodos = todoList.filter(
-    (todo) => todo.project === currentProject
-  );
-  currentProjectTodos.forEach((todo, index) => {
+  todoList.forEach((todo, index) => {
     addTodoElement(todo, index);
   });
 }
