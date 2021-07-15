@@ -1,5 +1,5 @@
-import { currentProject } from "./controller";
-import { todoList, addTodo, removeTodo, setDoneStatus } from "./model";
+import { currentProject } from "../controller";
+import { todoList, addTodo, removeTodo, setDoneStatus } from "../model";
 
 const todoListElement = document.getElementById("todoList");
 
@@ -25,7 +25,7 @@ function createCheckBox(newTodo, index) {
   checkbox.checked = newTodo.isDone;
   checkbox.addEventListener("change", function () {
     setDoneStatus(index, this.checked);
-    renderList();
+    renderTodoList();
   });
   return checkbox;
 }
@@ -43,22 +43,30 @@ function createDeleButton(index) {
   deleteButton.innerHTML = "Slett";
   deleteButton.addEventListener("click", () => {
     removeTodo(index);
-    renderList();
+    renderTodoList();
   });
   return deleteButton;
 }
 
-function createTodoElement(newTodo, index) {
-  const newTodoElement = document.createElement("div");
-  newTodoElement.classList.add("todo");
-  if (newTodo.isDone) newTodoElement.classList.add("done");
+function createAndAppendElements(element, newTodo, index) {
   const checkbox = createCheckBox(newTodo, index);
   const label = createLabel(newTodo, index);
   const removeButton = createDeleButton(index);
 
-  newTodoElement.appendChild(checkbox);
-  newTodoElement.appendChild(label);
-  newTodoElement.appendChild(removeButton);
+  element.appendChild(checkbox);
+  element.appendChild(label);
+  element.appendChild(removeButton);
+}
+
+function createTodoElement(newTodo, index) {
+  const newTodoElement = document.createElement("div");
+
+  newTodoElement.classList.add("todo");
+  if (newTodo.isDone) newTodoElement.classList.add("done");
+  if (newTodo.project !== currentProject)
+    newTodoElement.classList.add("hidden");
+
+  createAndAppendElements(newTodoElement, newTodo, index);
 
   return newTodoElement;
 }
@@ -67,12 +75,9 @@ function clearList() {
   todoListElement.innerHTML = "";
 }
 
-function renderList() {
+function renderTodoList() {
   clearList();
-  const currentProjectTodos = todoList.filter(
-    (todo) => todo.project === currentProject
-  );
-  currentProjectTodos.forEach((todo, index) => {
+  todoList.forEach((todo, index) => {
     addTodoElement(todo, index);
   });
 }
@@ -84,4 +89,4 @@ function addTodoElement(newTodo, index) {
   todoListElement.appendChild(newTodoElement);
 }
 
-export { renderList, setUpPage };
+export { renderTodoList, setUpPage };

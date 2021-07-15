@@ -1,4 +1,4 @@
-import { renderList } from "./view";
+import { renderTodoList, renderProjectList } from "./view/todos";
 
 const todoList = [];
 const projectList = [];
@@ -13,7 +13,7 @@ function Todo(project, name, isDone, isExpanded, dueDate) {
 
 function addTodo(project, name, dueDate) {
   todoList.push(new Todo(project, name, false, false, dueDate));
-  renderList();
+  renderTodoList();
   console.table(todoList);
 }
 
@@ -27,6 +27,7 @@ function setDoneStatus(index, status) {
 
 function addProject(name) {
   projectList.push(name);
+  // renderProjectList();
 }
 
 export { todoList, addTodo, removeTodo, setDoneStatus, addProject };

@@ -49,6 +49,10 @@ body {
     opacity: 60%;
     text-decoration: line-through;
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 h1 {
