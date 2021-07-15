@@ -1,6 +1,6 @@
 import "../css/reset.css";
 import "../css/style.scss";
-import { setUpPage } from "./view";
+import { setUpPage } from "./view/todos";
 import { addProject, addTodo } from "./model";
 
 let currentProject = "Personlig";

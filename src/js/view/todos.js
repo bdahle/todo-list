@@ -1,5 +1,5 @@
-import { currentProject } from "./controller";
-import { todoList, addTodo, removeTodo, setDoneStatus } from "./model";
+import { currentProject } from "../controller";
+import { todoList, addTodo, removeTodo, setDoneStatus } from "../model";
 
 const todoListElement = document.getElementById("todoList");
 
@@ -42,7 +42,7 @@ function createDeleButton(index) {
   deleteButton.innerHTML = "Slett";
   deleteButton.addEventListener("click", () => {
     removeTodo(index);
-    renderList();
+    renderTodoList();
   });
   return deleteButton;
 }
@@ -66,7 +66,7 @@ function clearList() {
   todoListElement.innerHTML = "";
 }
 
-function renderList() {
+function renderTodoList() {
   clearList();
   const currentProjectTodos = todoList.filter(
     (todo) => todo.project === currentProject
@@ -83,4 +83,4 @@ function addTodoElement(newTodo, index) {
   todoListElement.appendChild(newTodoElement);
 }
 
-export { renderList, setUpPage };
+export { renderTodoList, setUpPage };
