@@ -21,7 +21,6 @@ function createProjectElement(newProject, index) {
   });
 
   newProjectElement.appendChild(projectName);
-
   return newProjectElement;
 }
 

@@ -1,3 +1,4 @@
+import { format, formatDistanceToNow, parse } from "date-fns";
 import { currentProject } from "../controller";
 import { todoList, addTodo, removeTodo, setDoneStatus } from "../model";
 
@@ -9,8 +10,14 @@ function setUpPage() {
   const newTodoDueDate = document.getElementById("newTodoDueDate");
 
   newTodoButton.addEventListener("click", function () {
-    if (newTodoInput.value !== "")
-      addTodo(currentProject, newTodoInput.value, newTodoDueDate.value);
+    if (newTodoInput.value !== "") {
+      const date = parse(newTodoDueDate.value, "yyyy-MM-dd", new Date());
+      // const formatted = format(date, "PP");
+      const formatted = formatDistanceToNow(date);
+
+      console.log(formatted);
+      addTodo(currentProject, newTodoInput.value, formatted);
+    }
   });
 }
 
@@ -34,7 +41,7 @@ function createLabel(newTodo, index) {
   const label = document.createElement("label");
   label.setAttribute("for", "label" + index);
   label.classList.add("unselectable");
-  label.innerHTML = newTodo.name + " innen " + newTodo.dueDate;
+  label.innerHTML = newTodo.name + " (" + newTodo.dueDate + ")";
   return label;
 }
 
